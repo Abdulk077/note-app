@@ -17,7 +17,7 @@ class DatabaseHelper {
 
   // setup database
   Future<Database> _initDatabase() async {
-    String path = join(await getDatabasesPath(), 'notes.db');
+    String path = join(await getDatabasesPath(), 'my_notes.db');
     return await openDatabase(
       path,
       version: 1,
@@ -50,9 +50,9 @@ class DatabaseHelper {
   Future<List<Note>> getNotes() async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query('notes');
-    return List.generate(maps.length, (i) {
-      return Note.fromMap(maps[i]);
-    });
+    return List.generate(maps.length, (i) => 
+      Note.fromMap(maps[i]));
+    
   }
 
   // update note
