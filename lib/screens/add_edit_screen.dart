@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notes_app/model/notes_model.dart';
+import 'package:notes_app/screens/home_screen.dart';
 import 'package:notes_app/services/database_helper.dart';
 
 class AddEditNoteScreen extends StatefulWidget {
@@ -117,7 +118,9 @@ class _AddEditNoteScreenState extends State<AddEditNoteScreen> {
                   InkWell(
                     onTap: (){
                       _saveNote();
-                      Navigator.pop(context);
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
+                      ));
                     },
                     child:Container(
                       margin: EdgeInsets.all(20),
