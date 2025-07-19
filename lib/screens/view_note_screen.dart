@@ -109,7 +109,9 @@ class ViewNoteScreen extends StatelessWidget {
                       letterSpacing: 0.2,
                     ),
                   ),
-            ),)
+            ),
+            ),
+          ),
         ],//children 
       )),
     );

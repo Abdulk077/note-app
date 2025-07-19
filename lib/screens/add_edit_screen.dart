@@ -90,25 +90,35 @@ class _AddEditNoteScreenState extends State<AddEditNoteScreen> {
                       return null;
                     },
                   ),
-                                    Padding(
+                  Padding(
                     padding: EdgeInsets.all(16),
                     child: SingleChildScrollView(
-                      scrollDirection:
-                          Axis.horizontal, // Also fixed the casing here
+                      scrollDirection:Axis.horizontal, // Also fixed the casing here
                       child: Row(
                         children: _colors.map(
                           (color) {
                             return GestureDetector(
-                              onTap: () =>
-                                  setState(() => _selectedColor = color),
+                              onTap: () => setState(() => _selectedColor = color),
                               child: Container(
                                 height: 40,
                                 width: 40,
                                 margin: EdgeInsets.only(right: 8),
                                 decoration: BoxDecoration(
-                                    // ...existing code...
+                                  color: color,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: _selectedColor == color ? Colors.black : Colors.transparent,
+                                    width: 2,     
                                     ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.1),
+                                      blurRadius: 4,
+                                      offset: Offset(0, 2),
+                                    ),
+                                  ]
                               ),
+                            ),
                             );
                           },
                         ).toList(), // Added missing .toList()
